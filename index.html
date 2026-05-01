@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OS Enterprise Group LLC — The House Behind OLIDIX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@200;300;400;500;600;700&family=Barlow+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0A1B3D;--navy-mid:#122348;
+  --gold:#C4A84C;--gold-light:#E0C26A;
+  --white:#FAFAF8;--off:#F2F0EA;--gray:#888880;
+  --font-serif:'Cormorant Garamond',Georgia,serif;
+  --font-sans:'Barlow',sans-serif;
+  --font-cond:'Barlow Condensed',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--navy);font-family:var(--font-sans);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(250,250,248,0.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(10,27,61,0.07)}
+.nav-logo img{height:40px;width:auto;object-fit:contain}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--white);background:var(--navy);padding:10px 22px;text-decoration:none;transition:all .3s}
+.nav-cta:hover{background:var(--gold);color:var(--navy)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero-left{background:var(--navy);display:flex;flex-direction:column;justify-content:center;padding:140px 56px 100px;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;opacity:.025;background-image:linear-gradient(rgba(196,168,76,1) 1px,transparent 1px),linear-gradient(90deg,rgba(196,168,76,1) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-glow{position:absolute;bottom:0;left:0;width:400px;height:400px;background:radial-gradient(circle,rgba(196,168,76,.07) 0%,transparent 70%);pointer-events:none}
+.h-eye{font-family:var(--font-cond);font-size:10px;font-weight:600;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;position:relative;z-index:1;opacity:0;animation:fu .8s ease .3s forwards}
+.h-title{font-family:var(--font-serif);font-size:clamp(44px,5.5vw,82px);font-weight:300;line-height:.94;color:var(--white);margin-bottom:28px;position:relative;z-index:1;opacity:0;animation:fu 1s ease .55s forwards}
+.h-title em{font-style:italic;color:var(--gold)}
+.h-sub{font-size:15px;font-weight:300;color:rgba(250,250,248,.5);line-height:1.85;margin-bottom:48px;max-width:400px;position:relative;z-index:1;opacity:0;animation:fu .9s ease .8s forwards}
+.h-sub strong{color:rgba(250,250,248,.8);font-weight:400}
+.h-acts{display:flex;gap:16px;align-items:center;position:relative;z-index:1;opacity:0;animation:fu .9s ease 1.05s forwards}
+.btn-gold{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:14px 32px;text-decoration:none;transition:background .3s}
+.btn-gold:hover{background:var(--gold-light)}
+.btn-ghost{font-size:11px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,250,248,.4);text-decoration:none;border-bottom:1px solid rgba(250,250,248,.15);padding-bottom:2px;transition:color .3s,border-color .3s}
+.btn-ghost:hover{color:var(--gold);border-color:var(--gold)}
+.hero-wm{position:absolute;right:-30px;top:50%;transform:translateY(-50%);opacity:.04;pointer-events:none}
+.hero-wm img{height:280px;filter:brightness(20)}
+
+.hero-right{position:relative;overflow:hidden}
+.hero-right-img{position:absolute;inset:0;background-size:cover;background-position:center 20%;filter:brightness(.45)}
+.hero-right-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--navy) 0%,rgba(10,27,61,0) 25%),linear-gradient(to top,rgba(10,27,61,.85) 0%,transparent 55%)}
+.hero-badge{position:absolute;bottom:48px;left:36px;right:36px;opacity:0;animation:fu .9s ease 1.3s forwards}
+.hero-badge-eye{font-family:var(--font-cond);font-size:10px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.hero-badge-name{font-family:var(--font-serif);font-size:30px;font-weight:300;font-style:italic;color:var(--white);margin-bottom:12px}
+.hero-badge-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,250,248,.45);text-decoration:none;border-bottom:1px solid rgba(250,250,248,.12);padding-bottom:2px;transition:color .3s,border-color .3s}
+.hero-badge-link:hover{color:var(--gold);border-color:var(--gold)}
+
+/* MARQUEE */
+.mq{overflow:hidden;border-top:1px solid rgba(10,27,61,.07);border-bottom:1px solid rgba(10,27,61,.07);padding:15px 0;background:var(--off)}
+.mq-track{display:flex;animation:mq 26s linear infinite;white-space:nowrap}
+.mq-item{font-family:var(--font-cond);font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);padding:0 28px;border-right:1px solid rgba(10,27,61,.08);flex-shrink:0}
+.mq-item.g{color:var(--gold)}
+
+/* ABOUT */
+.about{padding:130px 56px;background:var(--white)}
+.about-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.sec-eye{font-family:var(--font-cond);font-size:11px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.sec-title{font-family:var(--font-serif);font-size:clamp(34px,4.5vw,56px);font-weight:300;line-height:1.1;color:var(--navy);margin-bottom:24px}
+.sec-title em{font-style:italic;color:var(--gold)}
+.sec-body{font-size:15px;font-weight:300;color:var(--gray);line-height:1.95;margin-bottom:28px}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(10,27,61,.07);margin-top:36px}
+.astat{background:var(--white);padding:24px 20px}
+.astat-n{font-family:var(--font-serif);font-size:36px;font-weight:300;font-style:italic;color:var(--gold);line-height:1;margin-bottom:5px}
+.astat-l{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray)}
+
+.brand-card{background:var(--navy);overflow:hidden}
+.brand-card-img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:brightness(.45);display:block}
+.brand-card-body{padding:36px;position:relative}
+.brand-card-body::before{content:'';position:absolute;top:0;left:36px;right:36px;height:1px;background:linear-gradient(to right,var(--gold),transparent)}
+.bc-eye{font-family:var(--font-cond);font-size:10px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.bc-name{font-family:var(--font-serif);font-size:26px;font-weight:300;font-style:italic;color:var(--white);margin-bottom:8px}
+.bc-desc{font-size:13px;color:rgba(250,250,248,.4);line-height:1.7;margin-bottom:18px}
+.bc-link{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(196,168,76,.3);padding-bottom:2px}
+
+/* PRODUCTS */
+.products{padding:130px 56px;background:var(--off)}
+.products-inner{max-width:1160px;margin:0 auto}
+.products-header{margin-bottom:64px}
+.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.pc{position:relative;overflow:hidden;aspect-ratio:3/4}
+.pc-img{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.35);transition:filter .6s}
+.pc:hover .pc-img{filter:brightness(.48)}
+.pc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,27,61,.95) 0%,rgba(10,27,61,.2) 60%,transparent 100%)}
+.pc-content{position:absolute;bottom:0;left:0;right:0;padding:36px;transform:translateY(10px);transition:transform .5s}
+.pc:hover .pc-content{transform:translateY(0)}
+.pc-series{font-family:var(--font-cond);font-size:10px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.pc-name{font-family:var(--font-serif);font-size:clamp(26px,3vw,38px);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:6px}
+.pc-name em{font-style:italic}
+.pc-sku{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(250,250,248,.35);margin-bottom:18px}
+.pc-btn{display:inline-flex;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:9px 20px;text-decoration:none;transition:background .3s}
+.pc-btn:hover{background:var(--gold-light)}
+
+/* PRINCIPLES */
+.principles{padding:130px 56px;background:var(--navy);position:relative;overflow:hidden}
+.principles::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
+.principles-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+.pr-left .sec-title{color:var(--white)}
+.pr-left .sec-body{color:rgba(250,250,248,.4);font-size:14px;margin-top:16px;line-height:1.85}
+.pr-stack{display:flex;flex-direction:column;gap:1px;background:rgba(250,250,248,.05)}
+.pr{background:var(--navy);padding:32px 36px;display:flex;gap:20px;align-items:flex-start;transition:background .3s}
+.pr:hover{background:var(--navy-mid)}
+.pr-icon{width:40px;height:40px;border:1px solid rgba(196,168,76,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-serif);font-size:17px;font-style:italic;color:var(--gold)}
+.pr-name{font-family:var(--font-cond);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.pr-sub{font-size:11px;font-style:italic;color:rgba(250,250,248,.2);margin-bottom:8px;font-family:var(--font-serif)}
+.pr-desc{font-size:13px;color:rgba(250,250,248,.4);line-height:1.75}
+
+/* LEADERSHIP */
+.leadership{padding:130px 56px;background:var(--white)}
+.leadership-inner{max-width:1160px;margin:0 auto}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:56px}
+.tm{background:var(--off);padding:44px;display:flex;gap:24px;transition:background .3s}
+.tm:hover{background:#E8E5DB}
+.tm-av{width:56px;height:56px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-serif);font-size:18px;font-style:italic;color:var(--gold)}
+.tm-name{font-family:var(--font-cond);font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:3px}
+.tm-title{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.tm-desc{font-size:13px;color:var(--gray);line-height:1.75}
+
+/* CONTACT */
+.contact{padding:130px 56px;background:var(--navy);text-align:center;position:relative;overflow:hidden}
+.contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(196,168,76,.05) 0%,transparent 70%);pointer-events:none}
+.contact-inner{position:relative;z-index:1;max-width:520px;margin:0 auto}
+.contact .sec-title{color:var(--white)}
+.contact-sub{font-size:15px;font-weight:300;color:rgba(250,250,248,.4);line-height:1.85;margin-bottom:44px}
+.crow-wrap{display:flex;flex-direction:column;gap:13px;margin-bottom:44px}
+.crow{display:flex;align-items:center;justify-content:center;gap:14px}
+.crow-l{font-family:var(--font-cond);font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);min-width:52px;text-align:right}
+.crow-d{width:1px;height:13px;background:rgba(196,168,76,.22)}
+.crow-v{font-size:14px;color:rgba(250,250,248,.55)}
+.crow-v a{color:rgba(250,250,248,.55);text-decoration:none;transition:color .3s}
+.crow-v a:hover{color:var(--gold)}
+
+/* FOOTER */
+footer{background:#060606;padding:44px 56px 32px;border-top:1px solid rgba(250,250,248,.05)}
+.ft{display:grid;grid-template-columns:1fr auto 1fr;gap:28px;align-items:center;margin-bottom:24px}
+.ft-tag{font-family:var(--font-serif);font-size:20px;font-style:italic;font-weight:300;color:var(--gold);text-align:center}
+.ft-links{display:flex;gap:24px;justify-content:flex-end;list-style:none}
+.ft-links a{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,250,248,.22);text-decoration:none;transition:color .3s}
+.ft-links a:hover{color:var(--gold)}
+.ft-bottom{border-top:1px solid rgba(250,250,248,.05);padding-top:22px;display:flex;justify-content:space-between}
+.ft-copy{font-size:10px;color:rgba(250,250,248,.14);letter-spacing:.08em}
+.ft-entity{font-size:10px;color:rgba(250,250,248,.09);letter-spacing:.1em;text-transform:uppercase}
+
+.rv{opacity:0;transform:translateY(36px);transition:opacity .85s ease,transform .85s ease}
+.rv.v{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+
+@keyframes fu{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#"><img src="images/logo.jpg" alt="OS Enterprise Group LLC"></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Our Brand</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <p class="h-eye">OS Enterprise Group LLC — Atlanta, Georgia</p>
+    <h1 class="h-title">The House<br>Behind<br><em>OLIDIX.</em></h1>
+    <p class="h-sub">A Georgia-based holding company dedicated to building <strong>premium consumer brands</strong> that stand for craft, integrity, and lasting quality.</p>
+    <div class="h-acts">
+      <a href="#products" class="btn-gold">Our Brand</a>
+      <a href="#about" class="btn-ghost">Learn More ↓</a>
+    </div>
+    <div class="hero-wm"><img src="images/logo.jpg" alt=""></div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-img" style="background-image:url('images/pro-series.jpeg')"></div>
+    <div class="hero-right-overlay"></div>
+    <div class="hero-badge">
+      <div class="hero-badge-eye">Flagship Brand</div>
+      <div class="hero-badge-name">OLIDIX Premium Kitchenware</div>
+      <a href="https://olidix.com" class="hero-badge-link" target="_blank">Visit olidix.com ↗</a>
+    </div>
+  </div>
+</section>
+
+<div class="mq">
+  <div class="mq-track">
+    <div class="mq-item g">OS Enterprise Group LLC</div>
+    <div class="mq-item">Parent Company of OLIDIX</div>
+    <div class="mq-item g">Premium Kitchenware</div>
+    <div class="mq-item">316L Surgical Grade Steel</div>
+    <div class="mq-item g">HV 2000+ Hardness</div>
+    <div class="mq-item">Atlanta, Georgia · Est. 2026</div>
+    <div class="mq-item g">Strategy · Solutions · Growth</div>
+    <div class="mq-item">Amanah · Sidq · Ihsan</div>
+    <div class="mq-item g">Amazon FBA · Shopify DTC</div>
+    <div class="mq-item">PRO Series · CRAFT Series</div>
+    <div class="mq-item g">OS Enterprise Group LLC</div>
+    <div class="mq-item">Parent Company of OLIDIX</div>
+    <div class="mq-item g">Premium Kitchenware</div>
+    <div class="mq-item">316L Surgical Grade Steel</div>
+    <div class="mq-item g">HV 2000+ Hardness</div>
+    <div class="mq-item">Atlanta, Georgia · Est. 2026</div>
+    <div class="mq-item g">Strategy · Solutions · Growth</div>
+    <div class="mq-item">Amanah · Sidq · Ihsan</div>
+    <div class="mq-item g">Amazon FBA · Shopify DTC</div>
+    <div class="mq-item">PRO Series · CRAFT Series</div>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="rv">
+      <p class="sec-eye">Who We Are</p>
+      <h2 class="sec-title">Built to own and scale<br><em>great brands.</em></h2>
+      <p class="sec-body">OS Enterprise Group LLC is a Georgia-based holding company established to build, own, and operate premium consumer brands. Our flagship brand — OLIDIX — represents our commitment to surgical-grade quality, honest craftsmanship, and long-term brand equity.<br><br>We believe a great brand is built on three things: the truth of its materials, the integrity of its founders, and the excellence of its execution.</p>
+      <div class="about-stats">
+        <div class="astat"><div class="astat-n">50/50</div><div class="astat-l">Equal partnership structure</div></div>
+        <div class="astat" style="border-left:1px solid rgba(10,27,61,.07)"><div class="astat-n">2026</div><div class="astat-l">Georgia LLC certified</div></div>
+        <div class="astat" style="border-top:1px solid rgba(10,27,61,.07)"><div class="astat-n">1</div><div class="astat-l">Flagship brand: OLIDIX</div></div>
+        <div class="astat" style="border-top:1px solid rgba(10,27,61,.07);border-left:1px solid rgba(10,27,61,.07)"><div class="astat-n">ATL</div><div class="astat-l">Headquartered in Atlanta</div></div>
+      </div>
+    </div>
+    <div class="rv d2">
+      <div class="brand-card">
+        <img src="images/cb-box.jpeg" alt="OLIDIX Titanium Cutting Board" class="brand-card-img">
+        <div class="brand-card-body">
+          <div class="bc-eye">Our Flagship Brand</div>
+          <div class="bc-name">OLIDIX</div>
+          <div class="bc-desc">Premium titanium kitchenware. 316L surgical grade. HV 2000+ Vickers hardness. Built for those who demand the extraordinary from every surface.</div>
+          <a href="https://olidix.com" class="bc-link" target="_blank">Visit olidix.com ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="products-inner">
+    <div class="products-header rv">
+      <p class="sec-eye">The OLIDIX Collection</p>
+      <h2 class="sec-title">Two Series.<br><em>One Standard.</em></h2>
+    </div>
+    <div class="prod-grid">
+      <div class="pc rv">
+        <div class="pc-img" style="background-image:url('images/cb-box.jpeg')"></div>
+        <div class="pc-ov"></div>
+        <div class="pc-content">
+          <div class="pc-series">PRO Series</div>
+          <h3 class="pc-name">Titanium<br><em>Cutting Board</em></h3>
+          <div class="pc-sku">OLX-CB01 · 316L · HV 2000+ · 4.5mm</div>
+          <a href="https://olidix.com" class="pc-btn" target="_blank">View at olidix.com</a>
+        </div>
+      </div>
+      <div class="pc rv d2">
+        <div class="pc-img" style="background-image:url('images/utensils.jpeg');background-position:center 40%"></div>
+        <div class="pc-ov"></div>
+        <div class="pc-content">
+          <div class="pc-series">CRAFT Series</div>
+          <h3 class="pc-name">Walnut<br><em>Utensil Set</em></h3>
+          <div class="pc-sku">OLX-UT01 · Dark Espresso Walnut · Aged Copper</div>
+          <a href="https://olidix.com" class="pc-btn" target="_blank">View at olidix.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="principles">
+  <div class="principles-inner">
+    <div class="pr-left rv">
+      <p class="sec-eye">How We Operate</p>
+      <h2 class="sec-title" style="color:var(--white)">Governed by<br><em>Principle.</em></h2>
+      <p class="pr-left sec-body">Every brand under OS Enterprise Group is held to the same ethical framework that governs our founding partnership.</p>
+    </div>
+    <div class="rv d2">
+      <div class="pr-stack">
+        <div class="pr"><div class="pr-icon">A</div><div><div class="pr-name">Amanah</div><div class="pr-sub">Trustworthiness</div><div class="pr-desc">Every claim about our materials is independently verifiable. No marketing language, no inflated specs. Our customers trust us — we protect that trust unconditionally.</div></div></div>
+        <div class="pr"><div class="pr-icon">S</div><div><div class="pr-name">Sidq</div><div class="pr-sub">Truthfulness</div><div class="pr-desc">316L surgical grade. HV 2000+ verified. What we say is what you get. Transparency is a character standard we hold at every level of the business.</div></div></div>
+        <div class="pr"><div class="pr-icon">I</div><div><div class="pr-name">Ihsan</div><div class="pr-sub">Excellence</div><div class="pr-desc">We pursue the highest standard in everything we build — even when no one is watching. Because the person using our products deserves nothing less.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="leadership" id="leadership">
+  <div class="leadership-inner">
+    <div class="rv">
+      <p class="sec-eye">The Team</p>
+      <h2 class="sec-title">Founded by<br><em>Operators.</em></h2>
+    </div>
+    <div class="team-grid">
+      <div class="tm rv"><div class="tm-av">OT</div><div><div class="tm-name">Omar Sharif Tayef</div><div class="tm-title">CEO · Managing Member</div><p class="tm-desc">Entrepreneur and brand builder leading strategy, product vision, and capital allocation for OS Enterprise Group and OLIDIX.</p></div></div>
+      <div class="tm rv d2"><div class="tm-av">SM</div><div><div class="tm-name">Sayed Mahfuz</div><div class="tm-title">COO · Co-Organizer</div><p class="tm-desc">Operations leader overseeing day-to-day execution, vendor relationships, and brand operations across all OS Enterprise Group ventures.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <p class="sec-eye rv">Get In Touch</p>
+    <h2 class="sec-title rv d1">Let's Connect.</h2>
+    <p class="contact-sub rv d2">For brand partnership inquiries, licensing, or business development opportunities.</p>
+    <div class="crow-wrap rv d3">
+      <div class="crow"><span class="crow-l">Email</span><div class="crow-d"></div><span class="crow-v"><a href="mailto:info@osenterprisegroup.com">info@osenterprisegroup.com</a></span></div>
+      <div class="crow"><span class="crow-l">Phone</span><div class="crow-d"></div><span class="crow-v"><a href="tel:+13472275391">+1-347-227-5391</a></span></div>
+      <div class="crow"><span class="crow-l">Brand</span><div class="crow-d"></div><span class="crow-v"><a href="https://olidix.com" target="_blank">olidix.com</a></span></div>
+      <div class="crow"><span class="crow-l">Location</span><div class="crow-d"></div><span class="crow-v">Atlanta, Georgia</span></div>
+    </div>
+    <a href="mailto:info@osenterprisegroup.com" class="btn-gold rv">Send a Message</a>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div><img src="images/logo.jpg" alt="OS Enterprise Group LLC" style="height:36px;object-fit:contain"></div>
+    <div class="ft-tag">Strategy · Solutions · Growth</div>
+    <ul class="ft-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Brand</a></li>
+      <li><a href="https://olidix.com" target="_blank">OLIDIX ↗</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="ft-bottom">
+    <div class="ft-copy">© 2026 OS Enterprise Group LLC. All rights reserved.</div>
+    <div class="ft-entity">Georgia LLC · Control #26079702 · Atlanta, Georgia</div>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v')}){threshold:0.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
